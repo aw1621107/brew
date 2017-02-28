@@ -176,6 +176,7 @@ module Superenv
     PATH.new(
       keg_only_deps.map(&:opt_lib),
       HOMEBREW_PREFIX/"lib",
+      (compiler == :llvm_clang ? "#{Formulat["llvm"].opt_lib}" : ""),
       homebrew_extra_library_paths,
     ).existing
   end
